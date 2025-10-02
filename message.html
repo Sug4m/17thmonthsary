@@ -69,14 +69,23 @@
     z-index: 100;
   }
   .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 90%;
-    width: 400px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-  }
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 400px;
+  max-height: 80vh;   /* para hindi lumampas sa screen */
+  overflow: hidden;   /* importante para ma-limit ang loob */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+#modalBody {
+  max-height: 300px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
   .modal-content h2 {
     margin: 0 0 10px 0;
     color: #d63384;
@@ -240,3 +249,4 @@
 
 </body>
 </html>
+
