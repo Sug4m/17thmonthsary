@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.shortM{
+    background-color: rgb(197, 132, 221);
+    padding: 10px 10px 14px 10px;
+    height: 100vh;
+}
+.shortM h1{
+    text-align: center;
+    background-color: black;
+    color: blueviolet;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 6%;
+}
+.shortM p{
+    background-color: rgb(218, 182, 252);
+    padding: 10px;
+    border-radius: 2px;
+    text-align: left;
+}
+.content {
+    background: rgba(160, 48, 215, 0.8);
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 5vh;
+}
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #8e31a7;
+    color: white;
+    transition: 0.3s;
+    margin-left: 24%;
+}
+button:hover {
+    background: #ce2ad6;
+}
+.pics{
+    height: 100vh;
+    background: linear-gradient(to right, rgb(189, 18, 189), rgb(186, 130, 45));
+}
+.pics h1{
+    background-color: black;
+    color: #ce2ad6;
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+}
+.slider {
+    width: 80%;
+    max-width: 700px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.523);
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+
+  .slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+  }
+
+  .slides img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  /* Buttons */
+  .btn {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 20px;
+    user-select: none;
+    margin-left: 2%;
+  }
+
+  .btn:hover {
+    background: rgba(0,0,0,0.8);
+  }
+
+  .prev { left: 15px; }
+  .next { right: 15px; }
+.dudu img{
+    height: 20vh;
+    margin-left: 6%;
+}

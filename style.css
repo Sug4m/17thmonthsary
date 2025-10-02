@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background-color: rgb(239, 76, 239);
+}
+.love h2{
+    background-color: black;
+    color: rgb(230, 126, 230);
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    max-width: 70vw;
+    margin-left: 16%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.signup {
+    background-color: purple;
+    max-width: 70vw;
+    padding: 50px;
+    margin-top: 11%;
+    margin-left: 15%;
+    border: 5px solid plum;
+    box-shadow: 2px 1px 4px 5px plum;
+    border-radius: 15px;
+}
+.signup h5{
+    margin-top: -20%;
+    font-size: 15px;
+    margin-bottom: 15%;
+    color: white;
+    background-color: black;
+    padding: 12px;
+    border: 2px solid palevioletred;
+    border-radius: 10px;
+    text-align: center;
+}
+p1{
+    color:white;   
+    margin-left: -8%;
+}
+.email input{
+    height: 4vh;
+    margin-left: -9%;
+    border-radius: 2px;
+    margin-bottom: 10%;
+}
+p2{
+    color: white;
+    margin-left: -8%;
+}
+.angry{
+    text-align: center;
+    margin-top: 5vw;
+}
+a{
+    color: black;
+}
+img{
+    width: 30vw;
+    margin-left: 2%;
+}
+input[type = button]{
+    padding: 15px;
+    width: 20vw;
+    margin-left: 24%;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+.error {
+    margin-top: 1px;
+    color: black;
+    font-weight: bold;
+    border: 3px solid black;
+    padding: 3px;
+    background-color: red;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 3%;
+}

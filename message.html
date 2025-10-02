@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Message Boxes 💌 with Firebase</title>
+<style>
+  body {
+    font-family: sans-serif;
+    background: #e09fd3;
+    padding: 20px;
+    margin: 0;
+  }
+  h1 {
+    color: #580b51;
+    text-align: center;
+  }
+  form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  input, textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-left: -10px;
+  }
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #000;
+    color: rgb(200, 98, 207);
+  }
+  .board {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .letter {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+  .letter b {
+    color: #610f68;
+  }
+  .timestamp {
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+    margin-top: 6px;
+  }
+
+  /* Modal styles omitted for brevity - same as your original */
+  .modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  .modal-content h2 {
+    margin: 0 0 10px 0;
+    color: #d63384;
+  }
+  .modal-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .closeBtn, .deleteBtn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+  }
+  .closeBtn {
+    background: gray;
+  }
+  .deleteBtn {
+    background: crimson;
+  }
+
+  .blurred {
+    filter: blur(5px);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="mainContent">
+  <h1>Message Boxes 💌</h1>
+
+  <form id="form">
+    <input id="titleInput" type="text" placeholder="Title" />
+    <textarea id="bodyInput" placeholder="Your message..."></textarea>
+    <button type="button" id="saveBtn">Save</button>
+  </form>
+
+  <div class="board" id="board"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 id="modalTitle"></h2>
+    <p id="modalBody"></p>
+    <div class="timestamp" id="modalDate"></div>
+    <div class="modal-buttons">
+      <button class="closeBtn" id="closeModal">Close</button>
+      <button class="deleteBtn" id="deleteModal">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script type="module">
+  // Import Firebase SDK modules (version 9 modular)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+  import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+  // Your Firebase config (replace with yours!)
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNf4D6SqIjNiBjZTfWZyPgUIkWtQ2Byb0",
+    authDomain: "sug4m-34512.firebaseapp.com",
+    databaseURL: "https://sug4m-34512-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sug4m-34512",
+    storageBucket: "sug4m-34512.firebasestorage.app",
+    messagingSenderId: "324588237079",
+    appId: "1:324588237079:web:2b048e8094c01614464752",
+    measurementId: "G-9ZVQ9377DM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // DOM elements
+  const board = document.getElementById("board");
+  const saveBtn = document.getElementById("saveBtn");
+  const titleInput = document.getElementById("titleInput");
+  const bodyInput = document.getElementById("bodyInput");
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalBody = document.getElementById("modalBody");
+  const modalDate = document.getElementById("modalDate");
+  const closeModal = document.getElementById("closeModal");
+  const deleteModal = document.getElementById("deleteModal");
+  const mainContent = document.getElementById("mainContent");
+
+  let currentKey = null;
+
+  // Reference to messages node
+  const messagesRef = ref(database, 'messages');
+
+  // Load messages from Firebase and render
+  function loadMessages() {
+    onValue(messagesRef, (snapshot) => {
+      const data = snapshot.val();
+      board.innerHTML = "";
+      if(data) {
+        Object.entries(data).forEach(([key, letter]) => {
+          const div = document.createElement("div");
+          div.className = "letter";
+          div.innerHTML = `
+            <b>${letter.title}</b>
+            <p>${letter.body.length > 50 ? letter.body.substring(0,50) + "..." : letter.body}</p>
+            <div class="timestamp">📅 ${letter.date}</div>
+          `;
+          div.onclick = () => openModal(letter, key);
+          board.appendChild(div);
+        });
+      }
+    });
+  }
+
+  // Save message to Firebase
+  saveBtn.onclick = () => {
+    const title = titleInput.value.trim() || "Untitled";
+    const body = bodyInput.value.trim();
+    if(body){
+      const now = new Date();
+      const date = now.toLocaleString();
+      push(messagesRef, {title, body, date});
+      titleInput.value = "";
+      bodyInput.value = "";
+    }
+  };
+
+  // Open modal with message details
+  function openModal(letter, key) {
+    currentKey = key;
+    modalTitle.textContent = letter.title;
+    modalBody.textContent = letter.body;
+    modalDate.textContent = "📅 " + letter.date;
+    modal.style.display = "flex";
+    mainContent.classList.add("blurred");
+  }
+
+  // Close modal
+  closeModal.onclick = () => {
+    modal.style.display = "none";
+    mainContent.classList.remove("blurred");
+  };
+
+  // Delete message from Firebase
+  deleteModal.onclick = () => {
+    if(currentKey){
+      remove(ref(database, 'messages/' + currentKey));
+      modal.style.display = "none";
+      mainContent.classList.remove("blurred");
+      currentKey = null;
+    }
+  };
+
+  loadMessages();
+</script>
+
+</body>
+</html>

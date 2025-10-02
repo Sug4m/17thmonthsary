@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="memories.css">
+    <title>Memories</title>
+</head>
+<body>
+    <header class="shortM">
+        <h1>Our Memories💞</h1>
+        <p>Sobrang layo na ng narating natin love, we have so many memories na, pero sobrang linaw pa sa aking ala-ala nung una tayong nagkakilala and usap. We didn’t really expect na magtatagal tayo ng ganito, dahil akala natin nung una di tayo masyadong magtatagal dahil sa mga doubts and trust issues from our past relationships. But now, we don't have doubts and trust issue's anymore about sa relationship natin, we are confident na nasa tamang tao na us ehheeh. I'm so happy na nakilala kita aking binibini 😍 AHAHAHAHAHAH.<br>
+        So ayun this is our memories, lahat gusto kong balikan eh maliban sa mga away natin HAHAAHA mwa. I LOVE YOU MWA MWA</p>
+        <div class="content">
+            <h1>Rainbow</h1>
+            <p>Click the button to play music</p>
+            <button id="musicBtn">Play Music 🎵</button>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="rainbow.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </header>
+    <main class="pics">
+      <h1>OUR BEST MOMENTS</h1>  
+      <div class="slider">
+        <div class="slides" id="slides">
+          <img src="pica.jpg" alt="Slide 1">
+          <img src="picb.jpg" alt="Slide 2">
+          <img src="picc.jpg" alt="Slide 3">
+          <img src="picd.jpg" alt="Slide 4">
+          <img src="pice.jpg" alt="Slide 5">
+          <img src="picf.jpg" alt="Slide 6">
+          <img src="picg.jpg" alt="Slide 7">
+          <img src="pich.jpg" alt="Slide 8">
+          <img src="pici.jpg" alt="Slide 9">
+          <img src="picj.jpg" alt="Slide 10">
+          <img src="pick.jpg" alt="Slide 11">
+          <img src="picl.jpg" alt="Slide 12">
+          <img src="picm.jpg" alt="Slide 13">
+          <img src="pico.jpg" alt="Slide 14">
+          <img src="picq.jpg" alt="Slide 15">
+          <img src="picr.jpg" alt="Slide 16">
+          <img src="pics.jpg" alt="Slide 17">
+          <img src="pict.jpg" alt="Slide 18">
+          <img src="picu.jpg" alt="Slide 19">
+          <img src="picv.jpg" alt="Slide 20">
+          <img src="picw.jpg" alt="Slide 21">
+          <img src="picx.jpg" alt="Slide 22">
+          <img src="picy.jpg" alt="Slide 23">
+          <img src="picz.jpg" alt="Slide 24">
+          <img src="pic9.jpg" alt="Slide 25">
+          <img src="pic10.jpg" alt="Slide 26">
+          <img src="pic11.jpg" alt="Slide 27">
+          <img src="pic12.jpg" alt="Slide 28">
+          <img src="pic13.jpg" alt="Slide 29">
+          <img src="pic14.jpg" alt="Slide 30">
+          <img src="pic15.jpg" alt="Slide 31">
+          <img src="pic16.jpg" alt="Slide 32">
+          <img src="pic17.jpg" alt="Slide 33">
+          <img src="pic1.jpg" alt="Slide 34">
+          <img src="pic2.jpg" alt="Slide 35">
+          <img src="pic3.jpg" alt="Slide 36">
+          <img src="pic4.jpg" alt="Slide 37">
+          <img src="pic5.jpg" alt="Slide 38">
+          <img src="pic6.jpg" alt="Slide 39">
+          <img src="pic7.jpg" alt="Slide 40">
+          <img src="pic8.jpg" alt="Slide 41">
+        </div>
+      
+        <button class="btn prev" onclick="prevSlide()">❮</button>
+        <button class="btn next" onclick="nextSlide()">❯</button>
+      </div>
+      <footer class="dudu">
+        <img src="watchingdudu.gif" alt="watchingdudu">
+      </footer>
+    </main>
+
+    <script>
+      const music = document.getElementById("bgMusic");
+      const btn = document.getElementById("musicBtn");
+
+      btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "Pause Music ⏸️";
+      } else {
+        music.pause();
+        btn.textContent = "Play Music 🎵";
+      }
+      });
+      let index = 0;
+  const slides = document.getElementById("slides");
+  const total = slides.children.length;
+
+  function showSlide(i) {
+    index = (i + total) % total; // loop around
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(index + 1);
+  }
+
+  function prevSlide() {
+    showSlide(index - 1);
+  }
+    </script>
+  </body>
+</html>

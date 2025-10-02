@@ -1,0 +1,110 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background-color: rgb(239, 76, 239);
+}
+.why h2{
+    background-color: black;
+    color: rgb(239, 76, 239);
+    text-align: center;
+    font-size: 24px;
+    padding: 5%;
+}
+.back{
+    font-size: 13px;
+    color: rgb(239, 76, 239);
+    background-color: black;
+    padding: 2%;
+    margin-left: 2%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.base{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    margin-top: 20vh;
+    margin-left: 7.3%;
+    perspective: 1000px;
+    position: relative;
+}
+.envelope{
+    height: 0;
+    width: 0;
+    border-top: 100px solid brown;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    position: absolute;
+    z-index: 4;
+    transition: all 1s ease-in-out;
+    transform-origin: top;
+    transform-style: preserve-3d;
+}
+.envelope:hover{
+    transform: rotateX(180deg);
+}
+.cover{
+    height: 0;
+    width: 0;
+    border-top: 170px solid transparent;
+    position: absolute;
+    z-index: 3;
+}
+.cover-left{
+    border-left: 300px solid  rgb(136, 98, 47);
+}
+.cover-right{
+    border-right: 300px solid rgb(136, 98, 47);
+}
+.letter{
+    height: 169px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 2;
+    transition: all 1s ease-in-out;
+    box-shadow: 0px 0px 2px black;
+    transform-style: preserve-3d;
+    transform: translateZ(0) translateZ(0);
+}
+h3{
+    text-align: center;
+    padding: 1em;
+    font: 1em sans-serif;
+    font-size: 8.5px;
+    color: black;
+}
+.base:hover .letter{
+    transform: translateY(-90px) translateZ(80px) rotateX(-10deg);
+    box-shadow: 0px 15px 25px black;
+    z-index: 6;
+    transition-delay: 0.5s;
+}
+.letter h3{
+    font-size: 14px;
+    font-style: oblique;
+}
+.pic img{
+    width: 40vw;
+    height: auto;
+    margin-top: 3vh;
+}
+.pic2 img{
+    width: 40vw;
+    height: auto;
+    margin-left: 58%;
+    margin-top: -30vh;
+}
+audio{
+    width: 100px;
+    height: 3vh;
+    margin: 1px auto;
+    display: block;
+    margin-left: 4%;
+}

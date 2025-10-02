@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="music.css">
+  <title>SONG</title>
+</head>
+<body>
+  <header>
+    <h1>My Song Playlist for you</h1>
+  </header>
+
+  <div class="container" onclick="playMusic()">
+    <img src="pic4.jpg" alt="bestmemory">
+  </div>
+
+  <main>
+    <div class="player">
+      <h3 id="nowPlaying">🎵 Select a song 🎵</h3>
+      <audio id="audioPlayer" controls></audio>
+
+      <ul class="playlist">
+        <li onclick="playSong(0)">24/7 365</li>
+        <li onclick="playSong(1)">Baliw Sayo</li>
+        <li onclick="playSong(2)">Blue</li>
+        <li onclick="playSong(3)">Give me your Forever</li>
+        <li onclick="playSong(4)">Rainbow</li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    // Playlist array
+    const songs = [
+      { file: "247365.mp3", title: "24/7 365" },
+      { file: "baliwsayo.mp3", title: "Baliw Sayo" },
+      { file: "blue.mp3", title: "Blue" },
+      { file: "givemeyourforever.mp3", title: "Give me your Forever" },
+      { file: "rainbow.mp3", title: "Rainbow" }
+    ];
+
+    let currentSong = 0;
+    const audio = document.getElementById("audioPlayer");
+    const nowPlaying = document.getElementById("nowPlaying");
+
+    // Play specific song
+    function playSong(index) {
+      currentSong = index;
+      audio.src = songs[index].file;
+      audio.play();
+      nowPlaying.textContent = "🎵 Now Playing: " + songs[index].title;
+    }
+
+    // Auto play next song kapag natapos yung isa
+    audio.addEventListener("ended", function () {
+      currentSong++;
+      if (currentSong >= songs.length) {
+        currentSong = 0; // balik sa unang kanta kung tapos na lahat
+      }
+      playSong(currentSong);
+    });
+  </script>
+</body>
+</html>

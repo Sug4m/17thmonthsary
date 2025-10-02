@@ -1,0 +1,72 @@
+body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #ce4dc3, #fad0c4);
+      color: #000000;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin: 20px;
+      font-size: 2em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    #quiz {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .question {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1.1em;
+      text-align: center;
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+    }
+
+    button:hover {
+      background: #ff3355;
+      cursor: pointer;
+    }
+
+    #timer {
+      margin-top: 15px;
+      font-size: 1.2em;
+    }
+
+    #feedback {
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
+
+    #result {
+      font-size: 1.4em;
+      margin-top: 20px;
+    }
+
+    #tryAgainBtn {
+      display: none;
+    }

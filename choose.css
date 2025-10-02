@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(195, 52, 195);
+}
+h2{
+    text-align: center;
+    background-color: black;
+    color:rgb(195, 52, 195);
+    padding: 7px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.message p{
+    margin-top: 5vh;
+    font-style: italic;
+    max-width: 90vw;
+    margin-left: 6%;
+    font-size: 18px;
+    border: 2px solid purple;
+    padding: 10px;
+    border-radius: 5px;
+}
+.open p{
+    margin-top: 10vh;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+.memories{
+    width: 70vw;
+    height: 30vh;
+    background-attachment: fixed;
+    margin-left: 15%;
+    overflow: hidden;
+    border: 5px solid rgb(16, 10, 2);
+    margin-top: 10%;
+    border-radius: 70px;
+    position: relative;
+}
+.memories img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.memories img:hover{
+    transform: scale(1.1);
+}
+.memory{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+    text-align: center;
+    padding: 15px 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.memories img:hover ,.memory{
+    opacity: 1;
+}
+.letter{
+    width: 70vw;
+    height: 30vh;
+    background-attachment: fixed;
+    margin-left: 15%;
+    overflow: hidden;
+    border: 5px solid rgb(16, 10, 2);
+    margin-top: 15%;
+    border-radius: 70px;
+    position: relative;
+}
+.letter img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.letter img:hover{
+    transform: scale(1.1);
+}
+.letters{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+    text-align: center;
+    padding: 15px 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.letter img:hover ,.letters{
+    opacity: 1;
+}
+.music{
+    width: 70vw;
+    height: 30vh;
+    background-attachment: fixed;
+    margin-left: 15%;
+    overflow: hidden;
+    border: 5px solid rgb(16, 10, 2);
+    margin-top: 15%;
+    border-radius: 70px;
+    position: relative;
+}
+.music img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.music img:hover{
+    transform: scale(1.1);
+}
+.musics{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+    text-align: center;
+    padding: 15px 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.music img:hover ,.musics{
+    opacity: 1;
+}
+.game{
+    width: 70vw;
+    height: 30vh;
+    background-attachment: fixed;
+    margin-left: 15%;
+    overflow: hidden;
+    border: 5px solid rgb(16, 10, 2);
+    margin-top: 15%;
+    border-radius: 70px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.game img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.game img:hover{
+    transform: scale(1.1);
+}
+.games{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+    text-align: center;
+    padding: 15px 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.game img:hover ,.games{
+    opacity: 1;
+}

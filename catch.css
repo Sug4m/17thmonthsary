@@ -1,0 +1,130 @@
+ body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  #gameArea {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    background: #e6a3e0;
+    border: 3px solid #6e1482;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  #player {
+    position: absolute;
+    bottom: 10px;
+    left: 150px;
+    width: 50px;
+    height: 30px;
+    background: #000000;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .heart {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: rgb(118, 26, 118);
+    transform: rotate(45deg);
+  }
+
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgb(118, 26, 118);
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: -10px;
+    top: 0;
+  }
+
+  #scoreBoard, #timer {
+    position: absolute;
+    top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #d63384;
+  }
+
+#scoreBoard {
+    left: 10px;
+}
+#timer {
+    right: 10px;
+}
+#controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.btn {
+    width: 120px;
+    padding: 15px;
+    font-size: 20px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+.btn:active {
+    background: #d63384;
+}
+#message{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 77, 109, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 20px;
+    display: none;
+}
+#gameOver {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 192, 203, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #d63384;
+    font-size: 24px;
+    font-weight: bold;
+}
+#restartBtn{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
