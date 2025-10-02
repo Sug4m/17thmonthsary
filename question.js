@@ -1,10 +1,10 @@
 const quizData = [
       { question: "When is our monthsary?? (M/D/Y, ex.01012025 )", answer: "05052024" },
       { question: "Who liked us first?? (first name)", answer: "trisha" },
-      { question: "What's our first theme song??", answer: "baliw sayo" },
+      { question: "What is our first theme song??", answer: "baliw sayo" },
       { question: "Where did we go on my birthday??", answer: "star city" },
       { question: "Where did we meet??", answer: "church" },
-      { question: "What's our favorite color??", answer: "purple" },
+      { question: "What is our favorite color??", answer: "purple" },
       { question: "What game do we always play??", answer: "call of duty" },
       { question: "Where is our first date??", answer: "ayala mall" },
       { question: "Who is the first move??", answer: "justin"},
@@ -102,4 +102,5 @@ const quizData = [
     tryAgainBtn.addEventListener("click", startGame);
 
     // Start game on load
+
     startGame();
